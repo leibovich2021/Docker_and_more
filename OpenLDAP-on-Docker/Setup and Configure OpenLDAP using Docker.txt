@@ -1,0 +1,88 @@
+﻿Setup and Configure OpenLDAP using Docker 
+
+
+Installing Docker on Amazon Linux 2
+
+
+root-user = sudo -i
+1. sudo yum update
+2.sudo yum install docker
+3.docker --version
+(sudo systemctl status docker
+sudo systemctl start docker)
+Now we install docker-compose, run 
+1. curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null
+2.  chmod +x /usr/local/bin/docker-compose
+3. ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+4. docker-compose --version
+
+now we make a new dir  and make a file docker-compose.yaml
+1. mkdir openldap
+2. nano docker-compose.yaml
+
+version: '3.3'
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    hostname: openldap
+    ports: 
+      - "389:389"
+      - "636:636"
+    volumes:
+      - ./data/certificates:/container/service/slapd/assets/certs
+      - ./data/slapd/database:/var/lib/ldap
+      - ./data/slapd/config:/etc/ldap/slapd.d
+    environment: 
+      - LDAP_ORGANISATION=denis
+      - LDAP_DOMAIN=denis.com
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=admin_pass
+      - LDAP_CONFIG_PASSWORD=config_pass
+      - "LDAP_BASE_DN=dc=denis,dc=com"
+      - LDAP_TLS_CRT_FILENAME=server.crt
+      - LDAP_TLS_KEY_FILENAME=server.key
+      - LDAP_TLS_CA_CRT_FILENAME=denis.com.ca.crt
+      - LDAP_READONLY_USER=true
+      - LDAP_READONLY_USER_USERNAME=user-ro
+      - LDAP_READONLY_USER_PASSWORD=ro_pass
+    networks:
+      - openldap
+  
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    hostname: phpldapadmin
+    ports: 
+      - "80:80"
+    environment: 
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+      - PHPLDAPADMIN_HTTPS=false
+    depends_on:
+      - openldap
+    networks:
+      - openldap
+
+networks:
+  openldap:
+    driver: bridge
+
+
+
+
+
+
+
+
+
+now we save and run
+1. docker-compose up -d
+
+go to your browser
+and get in your user
+
+user : cn=admin,dc=denis,dc=com
+pass: admin-pass
+
+
+and add new user
