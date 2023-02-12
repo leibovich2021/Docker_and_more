@@ -1,0 +1,51 @@
+Install Docker on Ubuntu 18.04
+
+how install docker 
+1. sudo apt update
+2. sudo apt install apt-transport-https
+3. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+4. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+5. sudo apt update
+6. sudo apt install docker-ce
+7. sudo systemctl status docker
+8. sudo usermod -aG docker $USER
+9. >>>logout/login<<<
+
+run tomcat 
+1. docker search tomcat
+2. docker pull tomcat
+3. docker run -it -p 1234:8080 tomcat
+
+run nginx
+1. docker run -it -p 8888:80 nginx
+or
+docker run -d -p 8888:80 nginx
+
+for build docker image we open dir
+1. mkdir my_docker
+2. nano Dockerfile
+3. in Dockerfile press this text >>>
+
+FROM ubuntu:16.04
+
+RUN apt-get -y update
+RUN apt-get -y install apache2
+
+RUN echo 'Hello World from Docker!' > /var/www/html/index.html
+
+CMD ["/usr/sbin/apache2ctl", "-D","FOREGROUND"]
+EXPOSE 80
+
+
+<<<<
+
+now run us build
+
+1. docker build -t denis :version1
+2. docker run -d -p 1234:8080 denis:version1
+
+and its all.
+
+Kill and Delete 
+docker rm (id)
+docker rmi (id) 
