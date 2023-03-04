@@ -11,8 +11,12 @@ docker ps
 docker ps -a
 docker images
 docker build .
+docker rm (container id)
+docker container prune   =  delete all container
+docker run (number images)
 docker run hello-world
 ifconfig
+docker run -it (name image)
 docker run -it tomcat
 docker run -it -p 1234:8080 tomcat
 docker search httpd
