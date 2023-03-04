@@ -10,6 +10,7 @@ sudo systemctl status docker
 docker ps 
 docker ps -a
 docker images
+docker build .
 docker run hello-world
 ifconfig
 docker run -it tomcat
