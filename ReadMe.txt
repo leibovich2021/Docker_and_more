@@ -14,10 +14,14 @@ docker build .
 docker rm (container id)
 docker container prune   =  delete all container
 docker run (number images)
-docker run hello-world
-ifconfig
 docker run -it (name image)
+ifconfig
+docker search httpd
+
+exmaple: 
+
+
+docker run hello-world
+docker run -d --name tomcat -p 1234:8080 -d tomcat
 docker run -it tomcat
 docker run -it -p 1234:8080 tomcat
-docker search httpd
-docker run -d --name tomcat -p 1234:8080 -d tomcat
