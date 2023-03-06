@@ -41,6 +41,18 @@ docker run -it (name image)
 ifconfig
 docker search httpd
 docker rmi $(docker images -q)
+
+
+stop all containers:
+docker stop $(docker ps -a -q)
+
+remove all containers:
+docker rm $(docker ps -a -q)
+
+remove all images:
+docker rmi -f $(docker images -a -q)
+
+
 exmaple: 
 
 docker run -d --name (Name) -p (port:80) -d (name image)
