@@ -5,9 +5,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-o
 
 
 ==============
-Client
-Deamon
-Host
+Client terminal
+Deamon  server
+Host    local computer
 Container
 Image
 Repository
