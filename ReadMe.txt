@@ -23,7 +23,7 @@ Container 1 = Image 1
 
 
 
-
+===============
 
 command:
 
@@ -31,21 +31,40 @@ sudo systemctl status docker
 docker version
 ifconfig
 
+ping 8.8.8.8  = how check if conatiner have access to internet
+or ping (name site)
+ls -la = show all file in container
+
 docker search (name image)
 
 docker pull (name image) = save image in my local computer
 docker run (name images) = how run container
 
-docker ps = check what container runing
-docker ps -a = check what container run
+docker run -i -t = interactive terminal
+docker run -it (name images) = enter into image
+docker run -it busybox
+docker run -d nginx = detached
+docker run nginx
+docker run -d --name (Name) nginx  = add name
+
+docker container inspect (number container)
+or
+docker container inspect (number container) | grep IPAddress
+
+docker exec -it (name container/id) (name process)
+docker exec -it 8cbe6b4701f7 bash
+
+docker ps = show what container runing
+docker ps -a = show what container run and stop 
 docker images = show images
 
 docker build .
 
+docker stop (name container)
+docker stop $(docker ps -a -q) = stop all containers
 docker rm (container id)
 docker container prune   =  delete all container
 docker rmi $(docker images -q)
-docker stop $(docker ps -a -q) = stop all containers
 docker rm $(docker ps -a -q) = remove all containers
 docker rmi -f $(docker images -a -q) = remove all images
 
