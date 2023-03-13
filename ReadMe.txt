@@ -58,7 +58,7 @@ docker ps = show what container runing
 docker ps -a = show what container run and stop 
 docker images = show images
 
-docker build .
+
 
 docker stop (name container)
 docker stop $(docker ps -a -q) = stop all containers
@@ -81,7 +81,7 @@ to enter into container
 docker exec -it (number container) bash
 
 
-exmaple: docker run -it --rm busybox  = delete containter after stoped
+exmaple: docker run -it --rm busybox  = auto delete containter after stoped
 
 
 docker run -it (name image)
@@ -91,8 +91,22 @@ docker run -d --name tomcat -p 1234:8080 -d tomcat
 docker run -it tomcat
 docker run -it -p 1234:8080 tomcat
 
+==========================================================
+
+CreateImage:
+1 DockerFile = 1 Image
+
+docker build .
+docker build -f = file name
+docker build . -t denis:1.1.23.1 = number version(latest)
+docker build . -t my-calendar
+docker run -it my-calendar
+docker build . -t my-calendar:2.0.0
 
 
+FROM python:latest or alpine(min version)
+WORKDIR /app (dir)
+COPY . . = make Copy
+CMD ["python", "main.py"]
 
-1:20 
 
