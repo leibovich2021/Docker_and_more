@@ -69,8 +69,11 @@ docker rm $(docker ps -a -q) = remove all containers
 docker rmi -f $(docker images -a -q) = remove all images
 
 
+docker run -p 8080:80 (name image) = -p = publish
+docker run -d -p 8083:80 nginx
 
-
+how chang html page in nginx:
+docker run -v ${PWD}:/usr/share/nginx/html nginx
 exmaple: 
 
 
@@ -80,3 +83,9 @@ docker run hello-world
 docker run -d --name tomcat -p 1234:8080 -d tomcat
 docker run -it tomcat
 docker run -it -p 1234:8080 tomcat
+
+
+
+
+1:20 
+
