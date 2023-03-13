@@ -109,4 +109,12 @@ WORKDIR /app (dir)
 COPY . . = make Copy
 CMD ["python", "main.py"]
 
+go into container 
+docker exec -it (number container) sh
+
+
+===========================================
+
+Docker Compose
+
 
