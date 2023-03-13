@@ -74,7 +74,14 @@ docker run -d -p 8083:80 nginx
 
 how chang html page in nginx:
 docker run -v ${PWD}:/usr/share/nginx/html nginx
-exmaple: 
+${PWD} = adderss new file html
+docker run -v ${PWD}:/usr/share/nginx/html -p 8089:80 -d  nginx
+
+to enter into container
+docker exec -it (number container) bash
+
+
+exmaple: docker run -it --rm busybox  = delete containter after stoped
 
 
 docker run -it (name image)
