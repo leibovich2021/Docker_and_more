@@ -98,7 +98,7 @@ CreateImage:
 
 docker build .
 docker build -f = file name
-docker build . -t denis:1.1.23.1 = number version(latest)
+docker build . -t denis:1.1.23.1     = number version(latest)
 docker build . -t my-calendar
 docker run -it my-calendar
 docker build . -t my-calendar:2.0.0
