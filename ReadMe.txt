@@ -1,9 +1,11 @@
-Docker
+```diff
 
-for install:
+-Docker
+
+-for install:
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 
-For work docker in Windows or Mac we need download Docker Desktop(Virtual m)
+-For work docker in Windows or Mac we need download Docker Desktop(Virtual m)
 
 ==============
 Client = terminal
@@ -25,7 +27,7 @@ Container 1 = Image 1
 
 ===============
 
-command:
+-command:
 
 sudo systemctl status docker
 docker version
@@ -93,7 +95,7 @@ docker run -it -p 1234:8080 tomcat
 
 ==========================================================
 
-CreateImage:
++CreateImage:
 1 DockerFile = 1 Image
 
 docker build .
@@ -115,10 +117,21 @@ docker exec -it (number container) sh
 
 ===========================================
 
-Docker Compose
++Docker Compose
 
 
 docker-compose up
 docker-compose up -d
 docker-compose down
 docker-compose up -d --build
+
+
+
+
+
+
+
+
+
+```
+
