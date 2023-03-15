@@ -33,6 +33,13 @@ sudo systemctl status docker
 docker version
 ifconfig
 
+
+docker ps = show what container runing
+docker ps -a = show what container run and stop 
+docker images = show images
+
+
+
 ping 8.8.8.8  = how check if conatiner have access to internet
 or ping (name site)
 ls -la = show all file in container
@@ -49,16 +56,17 @@ docker run -d nginx = detached
 docker run nginx
 docker run -d --name (Name) nginx  = add name
 
+stop container when he finshed
+docker run -it --rm bustbox 
+
 docker container inspect (number container)
 or
 docker container inspect (number container) | grep IPAddress
-
+ 
+into to container:
 docker exec -it (name container/id) (name process)
 docker exec -it 8cbe6b4701f7 bash
 
-docker ps = show what container runing
-docker ps -a = show what container run and stop 
-docker images = show images
 
 
 
@@ -74,6 +82,7 @@ docker rmi -f $(docker images -a -q) = remove all images
 docker run -p 8080:80 (name image) = -p = publish
 docker run -d -p 8083:80 nginx
 
+
 how chang html page in nginx:
 docker run -v ${PWD}:/usr/share/nginx/html nginx
 ${PWD} = adderss new file html
@@ -87,6 +96,8 @@ exmaple: docker run -it --rm busybox  = auto delete containter after stoped
 
 
 docker run -it (name image)
+
+run background:
 docker run -d --name (Name) -p (port:80) -d (name image)
 docker run hello-world
 docker run -d --name tomcat -p 1234:8080 -d tomcat
