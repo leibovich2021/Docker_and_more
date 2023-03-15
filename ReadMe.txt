@@ -118,3 +118,8 @@ docker exec -it (number container) sh
 Docker Compose
 
 
+docker-compose up
+docker-compose up -d
+docker-compose down
+
+
