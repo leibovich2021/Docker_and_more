@@ -1,0 +1,11 @@
+version : '3'
+
+services:
+  nginx1:
+    image: nginx    
+    ports: 
+      - 4545:80
+  httpd1:
+    image: httpd
+    ports: 
+      - 4343:80 
