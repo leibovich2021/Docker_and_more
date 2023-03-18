@@ -1,0 +1,27 @@
+version : '3'
+
+services:
+  check1:  
+    image: httpd 
+    ports:
+      - 1111:80 
+  check2:
+    image: httpd
+    ports:
+      - 1112:80
+  check3:
+    image: nginx  
+    ports:
+      - 1113:80
+  check4:
+    image: tomcat
+    ports:
+      - 1114:80 
+  check5:
+    image: tomcat
+    ports:
+      - 1115:80
+  check6:
+    image: nginx
+    ports:
+      - 1116:80
